@@ -11,6 +11,7 @@ function App() {
   const [habits, setHabits] = useState(service.getExistingHabits());
   const habitFormOnSubmit = (model) => {
     model.Id = model.Id || Utils.uuidv4();
+    model.Date = new Date();
     setHabits((state, props) => ([...state, model]));
 
   };
@@ -18,6 +19,7 @@ function App() {
     const item = habits.find(habit => habit.Id === id);
     if (item.Done < item.Time) {
       item.Done = item.Done + 1;
+      item.LastUpdatedAt = new Date();
       setHabits([...habits]);
     }
   }

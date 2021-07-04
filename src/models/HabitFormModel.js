@@ -7,5 +7,7 @@ export class HabitFormModel {
         this.Time = obj.Time || 0;
         this.Period = obj.Period || "D";
         this.Done = obj.Done || 0;
+        this.Date = obj.Date || "";
+        this.LastUpdatedAt = obj.LastUpdatedAt || "";
     }
 }

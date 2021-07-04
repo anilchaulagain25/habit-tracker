@@ -1,8 +1,11 @@
 import React from 'react'
 import { HabitFormModel } from '../models/HabitFormModel';
+import * as timeago from './../../node_modules/timeago.js/dist/timeago.min.js';
 
 export const HabitGridItem = (props) => {
     const habit = new HabitFormModel(props.habit);
+
+
     return (<div class="col-md-4">
         <div class="card text-center">
             <div class="card-header">
@@ -15,7 +18,8 @@ export const HabitGridItem = (props) => {
 
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                Created : {timeago.format(habit.Date)}
+                {habit.LastUpdatedAt ? (<span>, Last updated : {timeago.format(habit.LastUpdatedAt)}</span>) : null}
             </div>
         </div>
     </div >);
